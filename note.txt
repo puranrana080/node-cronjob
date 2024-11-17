@@ -1,0 +1,71 @@
+
+Sending Happy new Year to every User on 1st January 
+
+
+1-->  install node-cron
+      install moment
+      
+
+
+The moment library is a tool in Node.js used to easily work with dates and times. It helps with tasks like formatting dates, comparing dates, adding or subtracting time, and finding differences between dates in a simple and readable way.
+
+
+
+
+
+ # ┌────────────── second (optional)
+ # │ ┌──────────── minute
+ # │ │ ┌────────── hour
+ # │ │ │ ┌──────── day of month
+ # │ │ │ │ ┌────── month
+ # │ │ │ │ │ ┌──── day of week
+ # │ │ │ │ │ │
+ # │ │ │ │ │ │
+ # * * * * * *
+
+
+https://crontab.guru/
+timezone:'Asia/Kolkata'
+
+
+
+//will run every second
+// cron.schedule('* * * * * *',()=>{
+//     console.log("Runing the task every second",moment().format('DD MMM YYYY hh:mm:ss'))
+// })
+
+//every 10 sec(step value)
+// cron.schedule('*/10 * * * * *',()=>{
+//     console.log("Runing the task every 10 second",moment().format('DD MMM YYYY hh:mm:ss'))
+// })
+
+//(range)(5-10)
+// cron.schedule('5-10 * * * * *',()=>{
+//     console.log("Runing the task between every 5-10 second",moment().format('DD MMM YYYY hh:mm:ss'))
+// })
+
+//multiple values
+// cron.schedule('5,15,25,35,45,55 * * * * *',()=>{
+//     console.log("Runing the task at 5,15,25,35,45,55 second",moment().format('DD MMM YYYY hh:mm:ss'))
+// })
+
+// now minutes
+// cron.schedule('5,15,25,35,45,55  * * * *',()=>{
+//     console.log("Runing the task at 5,15,25,35,45,55 minutes of every hour",moment().format('DD MMM YYYY hh:mm:ss'))
+// })
+
+//minutes of hour
+// cron.schedule('8,20,30,41,50 9 * * *',()=>{
+//     console.log("Running the task at 10,20...60 minutes of 2'o clock",moment().format('DD MMM YYYY hh:mm:ss'))
+// },{timezone:'Asia/Kolkata'})
+
+
+//using start stop
+// const task = cron.schedule('* * * * * *', () => {
+//     console.log("Running the task every sec by scheduling ", moment().format('DD MMM YYYY hh:mm:ss'))
+// }, {
+//     scheduled: false,
+//     timezone: 'Asia/Kolkata'
+// })
+// task.start()
+// task.stop()
